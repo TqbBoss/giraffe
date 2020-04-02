@@ -1,0 +1,1 @@
+org.springframework.boot.env.PropertySourceLoader=giraffe.cloud.framework.config.utf8.PropertiesHandle
