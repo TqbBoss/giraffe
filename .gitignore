@@ -5,6 +5,9 @@ build/
 !**/src/main/**
 !**/src/test/**
 
+### KEY STORE ###
+*.jks
+
 ### STS ###
 .apt_generated
 .classpath

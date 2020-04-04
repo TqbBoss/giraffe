@@ -9,4 +9,6 @@
 
 rootProject.name = 'giraffe'
 
-include 'framework:config-center','framework:registry-center'
+include 'framework:config-server','framework:eureka-server'
+
+include 'microservice:sparrow'

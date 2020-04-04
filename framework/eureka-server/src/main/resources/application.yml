@@ -1,0 +1,20 @@
+server:
+  port: 8001
+spring:
+  security:
+    user:
+      name: eureka
+      password: eureka
+eureka:
+  client:
+    register-with-eureka: false
+    fetch-registry: false
+    service-url:
+      defaultZone: http://${eureka.instance.hostname}:${server.port}/eureka/
+  instance:
+    hostname: localhost
+    prefer-ip-address: true
+management:
+  endpoint:
+    health:
+      show-details: always

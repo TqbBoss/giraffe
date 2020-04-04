@@ -1,0 +1,6 @@
+encrypt:
+  key-store:
+    location: classpath:/giraffe.jks
+    password: giraffe
+    alias: giraffe
+    secret: giraffe

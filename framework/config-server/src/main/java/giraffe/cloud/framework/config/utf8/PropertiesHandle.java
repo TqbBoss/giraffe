@@ -2,6 +2,7 @@ package giraffe.cloud.framework.config.utf8;
 
 import org.springframework.boot.env.OriginTrackedMapPropertySource;
 import org.springframework.boot.env.PropertySourceLoader;
+import org.springframework.boot.env.YamlPropertySourceLoader;
 import org.springframework.core.env.PropertySource;
 import org.springframework.core.io.Resource;
 import org.springframework.core.io.support.PropertiesLoaderUtils;
@@ -20,7 +21,8 @@ public class PropertiesHandle implements PropertySourceLoader {
 
     @Override
     public List<PropertySource<?>> load(String name, Resource resource) throws IOException {
-        Map<String, ?> properties = loadProperties(resource);
+        String fileName = resource.getFilename();
+        Map<String, ?> properties = loadProperties(fileName, resource);
         if (properties.isEmpty()){
             return Collections.emptyList();
         }
@@ -28,8 +30,7 @@ public class PropertiesHandle implements PropertySourceLoader {
     }
 
     @SuppressWarnings({"unchecked","rawtypes"})
-    private Map<String, ?> loadProperties(Resource resource) throws IOException{
-        String fileName = resource.getFilename();
+    private Map<String, ?> loadProperties(String fileName, Resource resource) throws IOException{
         if (!StringUtils.isEmpty(fileName) && fileName.endsWith(".xml")){
             return (Map) PropertiesLoaderUtils.loadProperties(resource);
         }
