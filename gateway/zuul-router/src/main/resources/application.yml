@@ -1,13 +1,24 @@
 server:
-  port: 8002
+  port: 9000
 management:
   endpoint:
     health:
       show-details: always
-spring:
-  cloud:
-    gateway:
+zuul:
+  ignored-services: '*'
+  routes:
+    service1: /service1/**
+    service2: /service2/**
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:8001/eureka/
+    healthcheck:
       enabled: true
-      routes:
-        - id: sparrow
-          uri: http://localhost:8801/message
+    refresh:
+      enable: false
+    prefer-same-zone-eureka: true
+  instance:
+    hostname: localhost
+    prefer-ip-address: true
+    instance-id: ${spring.application.name}
