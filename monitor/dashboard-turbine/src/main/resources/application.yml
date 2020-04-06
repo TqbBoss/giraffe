@@ -1,5 +1,5 @@
 server:
-  port: 8801
+  port: 8101
 management:
   endpoints:
     web:
@@ -16,6 +16,11 @@ eureka:
       enabled: true
     refresh:
       enable: false
+    prefer-same-zone-eureka: true
   instance:
     hostname: localhost
     prefer-ip-address: true
+    instance-id: ${spring.application.name}
+turbine:
+  app-config: sparrow
+  clusterNameExpression: "'default'"

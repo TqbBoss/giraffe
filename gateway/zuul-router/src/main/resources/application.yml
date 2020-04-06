@@ -1,0 +1,13 @@
+server:
+  port: 8002
+management:
+  endpoint:
+    health:
+      show-details: always
+spring:
+  cloud:
+    gateway:
+      enabled: true
+      routes:
+        - id: sparrow
+          uri: http://localhost:8801/message

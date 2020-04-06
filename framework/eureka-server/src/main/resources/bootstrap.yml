@@ -6,4 +6,4 @@ spring:
       uri: http://localhost:8000
     loadbalancer:
       ribbon:
-        enabled: false
+        enabled: true

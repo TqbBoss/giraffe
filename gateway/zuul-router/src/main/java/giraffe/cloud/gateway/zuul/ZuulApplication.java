@@ -1,11 +1,12 @@
-package giraffe.cloud.microservice.sparrow;
+package giraffe.cloud.gateway.zuul;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class SparrowApplication {
+public class ZuulApplication {
+
     public static void main(String[] args) {
-        SpringApplication.run(SparrowApplication.class, args);
+        SpringApplication.run(ZuulApplication.class, args);
     }
 }
