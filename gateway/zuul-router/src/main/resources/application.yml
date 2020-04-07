@@ -5,10 +5,19 @@ management:
     health:
       show-details: always
 zuul:
+  prefix: /api
   ignored-services: '*'
+  ignored-headers:
   routes:
-    service1: /service1/**
+    service1:
+      path: /service1/**
+      sensitiveHeaders:
+      serviceId: service1
     service2: /service2/**
+  force-original-query-string-encoding: true
+  ribbon:
+    eager-load:
+      enabled: true
 eureka:
   client:
     service-url:
