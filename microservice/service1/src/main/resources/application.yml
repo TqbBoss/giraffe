@@ -23,3 +23,13 @@ eureka:
     instance-id: ${spring.application.name}
     metadata-map:
       zone: zone1
+spring:
+  rabbitmq:
+    host: localhost
+    port: 5672
+    username: guest
+    password: guest
+  cloud:
+    bus:
+      trace:
+        enabled: true

@@ -68,42 +68,42 @@ subprojects {
     }
 }
 
-def cleanPackage() {
-    def dir = new File(project.buildDir as String)
-    if (dir.exists()){
-        def files = dir.listFiles()
-        for (def file : files){
-            file.delete()
+task cleanPackage() {
+    doLast{
+        def dir = new File(project.buildDir as String)
+        if (dir.exists()){
+            def files = dir.listFiles()
+            for (def file : files){
+                file.delete()
+            }
+            def d = dir.deleteDir()
         }
-        def d = dir.deleteDir()
     }
 }
 
-def copyPackages() {
-    def root_build = project.buildDir as String
-    def dest = new File(root_build)
-    if (!dest.exists()){
-        dest.mkdirs()
-    }
-    project.subprojects.each {
-        def build_dir = it.buildDir as String
-        def libPath = new File(build_dir + "\\libs")
-        if (libPath.exists()){
-            def files = libPath.listFiles(new FilenameFilter() {
-                @Override
-                boolean accept(File dir, String name) {
-                    return name.endsWith(".jar") || name.endsWith(".war")
+task copyPackages() {
+    doLast {
+        def root_build = project.buildDir as String
+        def dest = new File(root_build)
+        if (!dest.exists()){
+            dest.mkdirs()
+        }
+        project.subprojects.each {
+            def build_dir = it.buildDir as String
+            def libPath = new File(build_dir + "\\libs")
+            if (libPath.exists()){
+                def files = libPath.listFiles(new FilenameFilter() {
+                    @Override
+                    boolean accept(File dir, String name) {
+                        return name.endsWith(".jar") || name.endsWith(".war")
+                    }
+                })
+                for (def f : files){
+                    def copyFile = new File(root_build + "\\" + f.name)
+                    println copyFile.path
+                    Files.copy(f.toPath(), copyFile.toPath())
                 }
-            })
-            for (def f : files){
-                def copyFile = new File(root_build + "\\" + f.name)
-                println copyFile.path
-                Files.copy(f.toPath(), copyFile.toPath())
             }
         }
     }
-}
-
-this.gradle.buildFinished {
-    copyPackages()
 }

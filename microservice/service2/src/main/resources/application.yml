@@ -23,3 +23,19 @@ eureka:
     instance-id: ${spring.application.name}
     metadata-map:
       zone: zone1
+spring:
+  cloud:
+    stream:
+      function:
+        definition: supplier;receive1;receive2;source1|source2;sink1;
+      bindings:
+        receive1-in-0:
+          destination: customerId-1
+        receive2-in-0:
+          destination: customerId-2
+        source1|source2-in-0:
+          destination: tqb-test1
+        source1|source2-out-0:
+          destination: tqb-test2
+        sink1-in-0:
+          destination: tqb-test2

@@ -1,5 +1,13 @@
 server:
   port: 8000
+management:
+  endpoints:
+    web:
+      exposure:
+        include: '*'
+  endpoint:
+    health:
+      show-details: always
 spring:
   cloud:
     config:
@@ -9,3 +17,8 @@ spring:
           timeout: 5
           search-paths: '{application}'
           force-pull: true
+  rabbitmq:
+    host: localhost
+    port: 5672
+    username: guest
+    password: guest
