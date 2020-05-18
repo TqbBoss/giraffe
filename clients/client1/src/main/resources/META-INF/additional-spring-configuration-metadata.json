@@ -1,0 +1,28 @@
+{
+  "properties": [
+    {
+      "name": "giraffe.oauth2.client.giraffe-password.client-id",
+      "type": "java.lang.String",
+      "description": "Description for giraffe.oauth2.client.giraffe-password.client-id."
+    },
+    {
+      "name": "giraffe.oauth2.client.giraffe-password.client-secret",
+      "type": "java.lang.String",
+      "description": "Description for giraffe.oauth2.client.giraffe-password.client-secret."
+    },
+    {
+      "name": "giraffe.oauth2.client.giraffe-password.grant-type",
+      "type": "java.lang.String",
+      "description": "Description for giraffe.oauth2.client.giraffe-password.grant-type."
+    },
+    {
+      "name": "giraffe.oauth2.client.giraffe-password.access-token-uri",
+      "type": "java.lang.String",
+      "description": "Description for giraffe.oauth2.client.giraffe-password.access-token-uri."
+    },
+    {
+      "name": "giraffe.oauth2.client.giraffe-password.scope",
+      "type": "java.lang.String",
+      "description": "Description for giraffe.oauth2.client.giraffe-password.scope."
+    }
+  ] }

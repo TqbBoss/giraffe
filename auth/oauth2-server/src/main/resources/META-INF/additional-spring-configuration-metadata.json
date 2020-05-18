@@ -1,0 +1,48 @@
+{
+  "properties": [
+    {
+      "name": "giraffe.datasource.driver-class-name",
+      "type": "java.lang.String",
+      "description": "giraffe: 数据库驱动."
+    },
+    {
+      "name": "giraffe.datasource.url",
+      "type": "java.lang.String",
+      "description": "giraffe: jdbc url."
+    },
+    {
+      "name": "giraffe.datasource.username",
+      "type": "java.lang.String",
+      "description": "giraffe: jdbc 用户名."
+    },
+    {
+      "name": "giraffe.datasource.password",
+      "type": "java.lang.String",
+      "description": "giraffe: jdbc 密码."
+    },
+    {
+      "name": "giraffe.datasource.initialSize",
+      "type": "java.lang.Integer",
+      "description": "giraffe: dbcp2 initialSize."
+    },
+    {
+      "name": "giraffe.datasource.maxActive",
+      "type": "java.lang.Integer",
+      "description": "giraffe: dbcp2 maxActive."
+    },
+    {
+      "name": "giraffe.datasource.maxIdle",
+      "type": "java.lang.Integer",
+      "description": "giraffe: dbcp2 maxIdle."
+    },
+    {
+      "name": "giraffe.datasource.maxWaitMillis",
+      "type": "java.lang.Integer",
+      "description": "giraffe: dbcp2 maxWaitMillis."
+    },
+    {
+      "name": "giraffe.security.secret",
+      "type": "java.lang.String",
+      "description": "giraffe: 密匙."
+    }
+  ] }

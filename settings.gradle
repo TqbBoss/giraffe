@@ -11,8 +11,13 @@ rootProject.name = 'giraffe'
 
 include 'framework:config-server','framework:eureka-server'
 
-include 'microservice:service1','microservice:service2'
+include 'auth:oauth2-server','auth:auth-db'
+
+include 'microservice:service1','microservice:service2','microservice:service3'
 
 include 'monitor:dashboard-turbine'
 
-include 'gateway:zuul-router'
+include 'gateway:zuul-router','gateway:gateway-router'
+
+include 'clients:client1'
+

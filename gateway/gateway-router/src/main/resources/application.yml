@@ -1,0 +1,42 @@
+server:
+  port: 9001
+  ssl:
+    enabled: false
+management:
+  endpoint:
+    health:
+      show-details: always
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:8001/eureka/
+    healthcheck:
+      enabled: true
+    refresh:
+      enable: false
+    prefer-same-zone-eureka: true
+  instance:
+    hostname: localhost
+    prefer-ip-address: true
+    instance-id: ${spring.application.name}
+spring:
+  cloud:
+    gateway:
+      metrics:
+        enabled: true
+      discovery:
+        locator:
+          enabled: true
+      httpclient:
+        ssl:
+          handshake-timeout: 10000
+          close-notify-flush-timeout: 3000
+          close-notify-read-timeout: 0
+        connect-timeout: 1000
+        response-timeout: 5s
+      globalcors:
+        cors-configurations:
+          '[/**]':
+            allowedOrigins: "*"
+            allowedMethods:
+              - GET

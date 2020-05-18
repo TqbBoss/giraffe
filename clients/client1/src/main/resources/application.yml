@@ -1,0 +1,11 @@
+server:
+  port: 9001
+giraffe:
+  oauth2:
+    client:
+      giraffe-password:
+        client-id: app1
+        client-secret: 123
+        grant-type: password
+        access-token-uri: http://localhost:8002/oauth/token
+        scope: read, write

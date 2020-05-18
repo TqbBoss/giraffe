@@ -1,0 +1,50 @@
+server:
+  port: 8002
+logging:
+  level:
+    org.springframework.web: INFO
+    org.springframework.security: INFO
+    org.springframework.security.oauth2: INFO
+management:
+  endpoints:
+    web:
+      exposure:
+        include: '*'
+  endpoint:
+    health:
+      show-details: always
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:8001/eureka/
+    healthcheck:
+      enabled: true
+    refresh:
+      enable: false
+    prefer-same-zone-eureka: true
+  instance:
+    hostname: localhost
+    prefer-ip-address: true
+    instance-id: ${spring.application.name}
+    metadata-map:
+      zone: zone1
+spring:
+  security:
+    oauth2:
+      resourceserver:
+        jwt:
+          jws-algorithm: EC512
+
+giraffe:
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/giraffe?characterEncoding=utf-8&serverTimezone=GMT&useSSL=false&allowMultiQueries=true
+    username: root
+    password: tian123
+    initialSize: 0
+    maxActive: 8
+    maxTotal: 100
+    maxIdle: 100
+    maxWaitMillis: -1
+  security:
+    secret: giraffe
