@@ -1,0 +1,31 @@
+server:
+  port: 8804
+management:
+  endpoints:
+    web:
+      exposure:
+        include: '*'
+  endpoint:
+    health:
+      show-details: always
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:8001/eureka/
+    healthcheck:
+      enabled: true
+    refresh:
+      enable: false
+    prefer-same-zone-eureka: true
+  instance:
+    hostname: localhost
+    prefer-ip-address: true
+    instance-id: ${spring.application.name}
+    metadata-map:
+      zone: zone1
+feign:
+  client:
+    config:
+      default:
+        connectTimeout: 5000
+        readTimeout: 5000
